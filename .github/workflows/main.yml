@@ -47,6 +47,18 @@ jobs:
             ecs-rollback)
             echo "Rolling back ECS deployment"
             ;;
+            ec2-ci)
+            echo "Running EC2 CI process"
+            ;;
+            ec2-cicd)
+            echo "Running EC2 CI/CD pipeline"
+            ;;
+            ec2-promote)
+            echo "Promoting EC2 build"
+            ;;
+            ec2-rollback)
+            echo "Rolling back EC2 deployment"
+            ;;
             *)
             echo "Invalid option selected"
           esac
