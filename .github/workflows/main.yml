@@ -3,17 +3,30 @@ name: Dropdown Example
 on:
   push:
     branches:
-     - main
+     - hemanth-feature
   workflow_dispatch:
     inputs:
-      environment:
-        description: "Select environment"
+      runner:
+        description: "Select runner"
         required: true
         type: choice
         options:
-          - dev
-          - staging
-          - production
+          - linux
+          - windows
+          
+      build-type:
+        description: "Select Build-type"
+        required: true
+        type: choice
+        options:
+          - ecs-ci
+          - ecs-cicd
+          - ecs-promote
+          - ecs-rollback
+          - ec2-ci
+          - ec2-cicd
+          - ec2-promote
+          - ec2-rollback
 jobs:
   run-job:
     runs-on: ubuntu-latest
