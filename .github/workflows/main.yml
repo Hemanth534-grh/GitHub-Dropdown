@@ -31,8 +31,6 @@ jobs:
   run-job:
     runs-on: ${{ inputs.runner }}
     steps:
-      - name: Checkout code
-      - uses: actions/checkout@2
       - name: print selected value
         run: |
           echo "Selected build type: ${{inputs.build-type}}"
