@@ -29,7 +29,7 @@ on:
           - ec2-rollback
 jobs:
   run-job:
-    runs-on: ${{ inputs.runner }}
+    runs-on: ubuntu-latest
     steps:
       - name: print selected value
         run: |
