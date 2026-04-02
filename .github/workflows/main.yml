@@ -33,6 +33,15 @@ jobs:
     steps:
       - name: print selected value
         run: |
+          echo "Selected build type: ${{inputs.runner}}"
+          case "${{ inputs['runner'] }}" in 
+            linux)
+            echo "Running on Linux"
+            ;;
+            windows)
+            echo "Running on windows"
+            ;;
+            *)
           echo "Selected build type: ${{inputs.build-type}}"
           case "${{ inputs['build-type'] }}" in 
             ecs-ci)
