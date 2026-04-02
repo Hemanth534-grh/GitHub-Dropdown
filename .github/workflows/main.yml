@@ -17,5 +17,6 @@ on:
 jobs:
   run-job:
     runs-on: ubuntu-latest
-  steps:
-    - name: Show selected option run: echo "you selected ${{ github.event.inputs.environment }}"
+    steps:
+      - name: Print selected value
+        run: echo "Environment is ${{ github.event.inputs.environment}}"
