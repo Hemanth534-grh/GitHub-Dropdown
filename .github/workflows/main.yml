@@ -34,7 +34,7 @@ jobs:
       - name: print selected value
         run: |
           echo "Selected build type: ${{inputs.build-type}}"
-          case "${{ inputs.build-type }}" in 
+          case "${{ inputs['build-type'] }}" in 
             ecs-ci)
             echo "Running ECS CI Proscess"
             ;;
