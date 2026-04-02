@@ -29,7 +29,27 @@ on:
           - ec2-rollback
 jobs:
   run-job:
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.runner }}
     steps:
-      - name: Print selected value
-        run: echo "Environment is ${{ github.event.inputs.environment}}"
+      - name: Checkout code
+      - uses: actions/checkout@2
+      - name: print selected value
+        run: |
+          echo "Selected build type: ${{inputs.build-type}}"
+          case "${{ inputs.build-type }}" in 
+            ecs-ci)
+            echo "Running ECS CI Proscess"
+            ;;
+            ecs-cicd)
+            echo "Running ECS CI/CD Proscess"
+            ;;
+            ecs-promote)
+            echo "Promoting ECS build"
+            ;;
+            ecs-rollback)
+            echo "Rolling back ECS deployment"
+            ;;
+            *)
+            echo "Invalid option selected"
+          esac
+            
